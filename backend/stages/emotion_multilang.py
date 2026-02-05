@@ -89,42 +89,21 @@ class MultiLangEmotionClassifier:
     def analyze(self, text: str) -> Dict[str, Any]:
         """
         Analyze text for emotions.
-        Flow: Transliterate → Translate → GoEmotions ML
+        Simple flow: Direct emotion detection without translation.
         """
         try:
             original_text = text
             detected_lang = 'english'
             was_translated = False
             
-            # Step 1: Transliteration (Romanized → Native script)
-            try:
-                from .transliterate import smart_transliterate
-                transliterated, translit_lang, success = smart_transliterate(text)
-                
-                if success and translit_lang not in ['english', 'native', 'unknown']:
-                    text = transliterated
-                    detected_lang = translit_lang
-                    print(f"[Transliteration] {translit_lang}: '{original_text}' -> '{text}'")
-            except Exception as e:
-                print(f"[Transliteration] Skipped: {e}")
-            
-            # Step 2: Detect language from script
+            # Detect language from script (for logging only)
             script_lang = self.detect_language(text)
             if script_lang != 'english':
                 detected_lang = script_lang
+                print(f"[Info] Detected {detected_lang} text, analyzing directly")
             
-            # Step 3: Translate to English if needed
-            if detected_lang != 'english':
-                try:
-                    translated = self._translate_to_english(text, detected_lang)
-                    if translated and translated != text:
-                        print(f"[Translation] {detected_lang}: '{text}' -> '{translated}'")
-                        text = translated
-                        was_translated = True
-                except Exception as e:
-                    print(f"[Translation] Failed: {e}")
-            
-            # Step 4: GoEmotions ML analysis
+            # Direct emotion detection without translation
+            # GoEmotions ML analysis
             results = self.classifier(text)
             
             if isinstance(results, list) and len(results) > 0:

@@ -8,7 +8,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, List
 import sys
+import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Add stages to path
 sys.path.insert(0, str(Path(__file__).parent))
@@ -35,7 +40,12 @@ app.add_middleware(
 # Initialize components
 print("Starting EmotionSense Personal API...")
 pipeline = PersonalPipeline()
-response_generator = PersonalResponseGenerator()
+
+# Check if AI generation is enabled
+use_ai = os.getenv("USE_AI_GENERATION", "true").lower() == "true"
+print(f"Response Generation Mode: {'AI (GPT-2)' if use_ai else 'Templates'}")
+response_generator = PersonalResponseGenerator(use_ai=use_ai)
+
 print("API Ready!")
 
 
