@@ -249,41 +249,70 @@ async function processMessage(text, messageId) {
     // Show loading state
     showSuggestionPanel('loading');
 
+    // Check if extension context is valid
+    try {
+        if (!chrome.runtime?.id) {
+            throw new Error('Extension context invalidated');
+        }
+    } catch (error) {
+        console.error('[EmotionSense] Extension context invalid - page needs refresh');
+        showToast('🔄 Extension reloaded - Please refresh this page');
+        hideSuggestionPanel();
+        return;
+    }
+
     // Send to background script for analysis with conversation context
-    chrome.runtime.sendMessage({
-        action: 'analyzeMessage',
-        data: { 
-            text, 
-            messageId,
-            conversationHistory: conversationHistory.slice(0, -1)  // All except current
-        }
-    }, (response) => {
-        console.log('[EmotionSense] Response from background:', response);
-        
-        if (response && response.success) {
-            if (response.isError) {
-                console.warn('[EmotionSense] Using fallback due to API error:', response.error);
-                showToast('⚠️ API Error - Using fallback suggestions');
+    try {
+        chrome.runtime.sendMessage({
+            action: 'analyzeMessage',
+            data: { 
+                text, 
+                messageId,
+                conversationHistory: conversationHistory.slice(0, -1)  // All except current
             }
-            displaySuggestions(response.data);
-        } else {
-            console.error('[EmotionSense] Analysis failed:', response?.error);
+        }, (response) => {
+            // Check for chrome.runtime.lastError
+            if (chrome.runtime.lastError) {
+                console.error('[EmotionSense] Message sending failed:', chrome.runtime.lastError.message);
+                
+                if (chrome.runtime.lastError.message.includes('context invalidated')) {
+                    showToast('🔄 Please refresh the page');
+                    hideSuggestionPanel();
+                    return;
+                }
+            }
             
-            // Show error-specific fallback
-            const errorFallback = {
-                emotion: 'neutral',
-                confidence: 0.5,
-                suggestions: [
-                    { text: "I'm here to listen", emoji: "👂", tone: "caring" },
-                    { text: "Tell me more about that", emoji: "💭", tone: "caring" },
-                    { text: "That sounds important", emoji: "💫", tone: "caring" }
-                ]
-            };
+            console.log('[EmotionSense] Response from background:', response);
             
-            displaySuggestions(errorFallback);
-            showToast('❌ Connection error - using offline suggestions');
-        }
-    });
+            if (response && response.success) {
+                if (response.isError) {
+                    console.warn('[EmotionSense] Using fallback due to API error:', response.error);
+                    showToast('⚠️ API Error - Using fallback suggestions');
+                }
+                displaySuggestions(response.data);
+            } else {
+                console.error('[EmotionSense] Analysis failed:', response?.error);
+                
+                // Show error-specific fallback
+                const errorFallback = {
+                    emotion: 'neutral',
+                    confidence: 0.5,
+                    suggestions: [
+                        { text: "I'm here to listen", emoji: "👂", tone: "caring" },
+                        { text: "Tell me more about that", emoji: "💭", tone: "caring" },
+                        { text: "That sounds important", emoji: "💫", tone: "caring" }
+                    ]
+                };
+                
+                displaySuggestions(errorFallback);
+                showToast('❌ Connection error - using offline suggestions');
+            }
+        });
+    } catch (error) {
+        console.error('[EmotionSense] Error sending message:', error);
+        showToast('🔄 Extension error - Please refresh the page');
+        hideSuggestionPanel();
+    }
 }
 
 // Create suggestion panel UI
