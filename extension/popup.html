@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmotionSense Settings</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 350px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e8e8ed;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            color: #7a7a8a;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #7a7a8a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .setting-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .setting-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .setting-label {
+            font-size: 14px;
+            color: #e8e8ed;
+        }
+
+        .toggle {
+            position: relative;
+            width: 44px;
+            height: 24px;
+        }
+
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+            border-radius: 24px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        .toggle input:checked+.toggle-slider {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+
+        .toggle input:checked+.toggle-slider:before {
+            transform: translateX(20px);
+        }
+
+        .input-group {
+            margin-bottom: 12px;
+        }
+
+        .input-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .input-label {
+            font-size: 12px;
+            color: #7a7a8a;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #e8e8ed;
+            font-size: 13px;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        input[type="text"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .status {
+            text-align: center;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin-top: 12px;
+            display: none;
+        }
+
+        .status.success {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            display: block;
+        }
+
+        .status.error {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            display: block;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 11px;
+            color: #7a7a8a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">EmotionSense</div>
+        <div class="subtitle">Chat Assistant Settings</div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Extension Status</div>
+        <div class="setting-row">
+            <span class="setting-label">Enable Extension</span>
+            <label class="toggle">
+                <input type="checkbox" id="enabled" checked>
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Platform Settings</div>
+        <div class="setting-row">
+            <span class="setting-label">WhatsApp Web</span>
+            <label class="toggle">
+                <input type="checkbox" id="whatsappEnabled" checked>
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+        <div class="setting-row">
+            <span class="setting-label">Instagram DMs</span>
+            <label class="toggle">
+                <input type="checkbox" id="instagramEnabled" checked>
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Response Settings</div>
+        <div class="input-group">
+            <label class="input-label">Response Tone</label>
+            <select id="tone">
+                <option value="caring">💜 Caring & Loving</option>
+                <option value="supportive">🤗 Supportive & Encouraging</option>
+                <option value="playful">😊 Playful & Light</option>
+                <option value="formal">👔 Formal & Respectful</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">API Configuration</div>
+        <div class="input-group">
+            <label class="input-label">API Server URL</label>
+            <input type="text" id="apiUrl" value="http://localhost:5000" placeholder="http://localhost:5000">
+        </div>
+    </div>
+
+    <button class="btn" id="saveBtn">Save Settings</button>
+
+    <div class="status" id="status"></div>
+
+    <div class="footer">
+        EmotionSense v1.0 • Made with ❤️
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>

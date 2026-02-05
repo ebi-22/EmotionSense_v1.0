@@ -1,0 +1,20 @@
+{"id": 1001, "text": "My order hasn't arrived yet and it's been 2 weeks!", "emotion": "anger", "resolution": "Refunded shipping cost + expedited delivery"}
+{"id": 1002, "text": "I'm extremely frustrated with your service.", "emotion": "anger", "resolution": "Escalated to senior manager + 20% discount coupon"}
+{"id": 1003, "text": "I want to kill myself, I can't take this anymore.", "emotion": "crisis", "resolution": "Immediate protocol: Shared helpline numbers + flagged for human intervention"}
+{"id": 1004, "text": "Great service, thank you so much!", "emotion": "gratitude", "resolution": "Thanked customer + requested review"}
+{"id": 1005, "text": "I'm worried my package is lost.", "emotion": "fear", "resolution": "Verified tracking + reassured customer with delivery date"}
+{"id": 1006, "text": "This app keeps crashing when I open settings.", "emotion": "annoyance", "resolution": "Logged j-ticket + advised clearing cache"}
+{"id": 1007, "text": "I need help immediately, it's an emergency!", "emotion": "urgency", "resolution": "Priority routing to live agent"}
+{"id": 1008, "text": "I am so sad about the damaged item.", "emotion": "sadness", "resolution": "Apologized + replacement sent immediately"}
+{"id": 1009, "text": "How do I change my password?", "emotion": "neutral", "resolution": "Sent knowledge base article link"}
+{"id": 1010, "text": "You guys are the best! Love the new feature.", "emotion": "joy", "resolution": "Shared feedback with product team"}
+{"id": 1011, "text": "I've been waiting on hold for 30 minutes, this is unacceptable.", "emotion": "anger", "resolution": "Apology + credit applied to account"}
+{"id": 1012, "text": "Can I get a refund please?", "emotion": "neutral", "resolution": "Processed refund according to policy"}
+{"id": 1013, "text": "I'm really anxious about the exam results.", "emotion": "fear", "resolution": "Provided reassurance + resource links"}
+{"id": 1014, "text": "Stop emailing me or I'll sue.", "emotion": "anger", "resolution": "Unsubscribed email + flagged as DNC"}
+{"id": 1015, "text": "I feel hopeless and alone.", "emotion": "crisis", "resolution": "Crisis intervention protocol: 988 resource provided"}
+{"id": 1016, "text": "Why is this so expensive?", "emotion": "annoyance", "resolution": "Explained value proposition + offered payment plan"}
+{"id": 1017, "text": "My account was hacked!", "emotion": "fear", "resolution": "Locked account + password reset procedure initiated"}
+{"id": 1018, "text": "Please help me asap.", "emotion": "urgency", "resolution": "Fast-tracked to next available agent"}
+{"id": 1019, "text": "The quality is amazing, very happy.", "emotion": "joy", "resolution": "Thanked customer"}
+{"id": 1020, "text": "I don't understand how to use this feature.", "emotion": "confusion", "resolution": "Scheduled demo call with support"}

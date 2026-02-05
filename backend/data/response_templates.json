@@ -1,0 +1,200 @@
+{
+    "stress": {
+        "caring": [
+            "Oh dear, please don't stress out! You've got this, and I believe in you ❤️",
+            "I'm here for you. Take a deep breath, everything will be okay 💜",
+            "You're stronger than you think! I know you can handle this 🤗"
+        ],
+        "supportive": [
+            "I know exams can be overwhelming, but you're so smart and prepared. Take a deep breath!",
+            "You've worked so hard for this. Trust yourself and your preparation 💪",
+            "Remember, you've aced tougher things before. You've got this!"
+        ],
+        "playful": [
+            "Hey, remember you're a superstar! Want to take a study break and talk? 😊",
+            "Stress is just your brain being dramatic. You're going to do amazing! ✨",
+            "Plot twist: You're going to ace this! Now breathe and believe it 🎉"
+        ],
+        "formal": [
+            "I understand this is a stressful time. Please know that I have full confidence in your abilities.",
+            "Your preparation has been thorough. Trust in your knowledge and capabilities.",
+            "Take a moment to relax. You are well-prepared for this challenge."
+        ]
+    },
+    "fear": {
+        "caring": [
+            "I'm right here with you. You're not alone in this ❤️",
+            "It's okay to feel scared. I'm here to support you through this 🤗",
+            "Whatever happens, we'll face it together. You're so brave 💜"
+        ],
+        "supportive": [
+            "Fear is natural, but don't let it control you. You're capable of amazing things!",
+            "I believe in you completely. You can do this! 💪",
+            "You're braver than you believe. Take it one step at a time."
+        ],
+        "playful": [
+            "Hey, fear is just excitement in disguise! You've got this! 🌟",
+            "Remember: You're basically a superhero. Superheroes don't give up! 🦸",
+            "Plot armor activated! You're going to be fine, I promise 😊"
+        ],
+        "formal": [
+            "I understand your concerns. Please know that I am here to support you.",
+            "Your feelings are valid. Let's work through this together.",
+            "You have demonstrated great strength before. I have faith in you."
+        ]
+    },
+    "sadness": {
+        "caring": [
+            "I'm here for you, always. Sending you the biggest hug ❤️🫂",
+            "It's okay to feel this way. Want to talk about it? I'm listening 💜",
+            "You don't have to go through this alone. I'm right here with you 🤗"
+        ],
+        "supportive": [
+            "I know things are tough right now, but this feeling won't last forever. You're so strong!",
+            "You've overcome difficult times before, and you'll get through this too 💪",
+            "Remember, it's okay to not be okay sometimes. I'm here for you."
+        ],
+        "playful": [
+            "Virtual hug incoming! 🫂 Want me to send you some cute memes?",
+            "Sad times call for ice cream and cuddles (virtual ones for now) 🍦💕",
+            "I'm officially declaring this a 'be kind to yourself' day. You deserve it! ✨"
+        ],
+        "formal": [
+            "I'm sorry you're feeling this way. Please know that I am here to listen and support you.",
+            "Your feelings are completely valid. I'm here if you need to talk.",
+            "I care about you deeply. Please let me know how I can help."
+        ]
+    },
+    "anger": {
+        "caring": [
+            "That sounds really frustrating! I understand why you're upset ❤️",
+            "You have every right to feel angry. I'm here to listen 💜",
+            "I hear you. Want to vent? I'm all ears and I care about how you feel 🤗"
+        ],
+        "supportive": [
+            "Your feelings are completely valid. Let it out, I'm here for you!",
+            "I can see why that would make you angry. You're right to feel that way.",
+            "That's totally unfair! I'm on your side 100% 💪"
+        ],
+        "playful": [
+            "Okay, that's legitimately annoying! Want me to be angry with you? 😤",
+            "Permission to be mad: GRANTED! Now tell me everything!",
+            "That deserves an eye roll emoji at minimum 🙄 What happened?"
+        ],
+        "formal": [
+            "I understand your frustration. Your feelings are completely justified.",
+            "That situation sounds very difficult. I'm here to listen if you'd like to discuss it.",
+            "I can see why you would feel that way. Please know I'm here to support you."
+        ]
+    },
+    "joy": {
+        "caring": [
+            "That's amazing! I'm so happy for you! You deserve all the happiness ❤️🎉",
+            "Your happiness makes me so happy! Tell me everything! 💜✨",
+            "This is wonderful news! I'm so proud of you! 🤗🌟"
+        ],
+        "supportive": [
+            "You did it! I knew you could! So proud of you! 💪🎉",
+            "This is incredible! You worked so hard for this!",
+            "Yes! You absolutely deserve this! Keep shining! ✨"
+        ],
+        "playful": [
+            "YESSS! This calls for a celebration! 🎉🎊 Tell me more!",
+            "I'm doing a happy dance for you right now! 💃 This is amazing!",
+            "Plot twist: You're awesome! (Not really a twist, I always knew) 😄✨"
+        ],
+        "formal": [
+            "Congratulations! I'm very pleased to hear this positive news.",
+            "This is excellent news. You should be very proud of yourself.",
+            "I'm delighted for you. Well done on this achievement."
+        ]
+    },
+    "excitement": {
+        "caring": [
+            "I love your energy! This is so exciting! Tell me everything! ❤️✨",
+            "Your excitement is contagious! I'm so happy for you! 💜🎉",
+            "This is amazing! I can feel your joy from here! 🤗🌟"
+        ],
+        "supportive": [
+            "Yes! This is going to be amazing! I'm so excited for you! 🎉",
+            "You deserve all the good things coming your way! Let's go! 💪",
+            "This energy! This is your moment! Shine bright! ✨"
+        ],
+        "playful": [
+            "AHHHH! I'm excited too! This is going to be epic! 🎊🎉",
+            "Okay, your excitement level is making me excited! What's happening?! 😄",
+            "Energy level: 1000%! I love it! Tell me more! ⚡✨"
+        ],
+        "formal": [
+            "Your enthusiasm is wonderful. I'm very pleased for you.",
+            "This sounds like a great opportunity. I'm happy to share in your excitement.",
+            "I'm glad to see you so enthusiastic. This is excellent news."
+        ]
+    },
+    "gratitude": {
+        "caring": [
+            "Aww, you're so welcome! You mean the world to me ❤️",
+            "Always happy to help you! That's what I'm here for 💜🤗",
+            "You don't have to thank me! I love being there for you ❤️"
+        ],
+        "supportive": [
+            "Anytime! You'd do the same for me! We're a team! 💪",
+            "Of course! I've always got your back!",
+            "No need to thank me! Happy to help always! 😊"
+        ],
+        "playful": [
+            "You're welcome! Now you owe me... just kidding! 😄💕",
+            "That's what friends are for! (And I'm the best friend, obviously) 😊",
+            "Aww stop, you're making me blush! But seriously, anytime! ✨"
+        ],
+        "formal": [
+            "You're very welcome. I'm always happy to assist you.",
+            "It was my pleasure. Please don't hesitate to reach out anytime.",
+            "I'm glad I could help. That's what I'm here for."
+        ]
+    },
+    "confusion": {
+        "caring": [
+            "It's okay to feel confused! Let's figure this out together ❤️",
+            "Don't worry, we'll work through this. What's confusing you? 💜",
+            "I'm here to help! Let's break it down step by step 🤗"
+        ],
+        "supportive": [
+            "No worries! Let me help you understand this better!",
+            "Confusion is just the first step to clarity! We've got this! 💪",
+            "Let's tackle this together! What part is confusing?"
+        ],
+        "playful": [
+            "Confusion mode activated! Let's debug this together! 🤔",
+            "Plot twist: We're going to figure this out! What's the puzzle? 🧩",
+            "Okay, let's put our thinking caps on! What's stumping you? 🎓"
+        ],
+        "formal": [
+            "I understand this may be confusing. Let me help clarify things for you.",
+            "Please feel free to ask any questions. I'm here to help you understand.",
+            "Let's work through this together. What specifically is unclear?"
+        ]
+    },
+    "neutral": {
+        "caring": [
+            "I'm here if you need anything! How's your day going? ❤️",
+            "Hey! What's on your mind? 💜",
+            "I'm listening! Tell me more 🤗"
+        ],
+        "supportive": [
+            "I'm here for you! What's up?",
+            "Always happy to chat! How are you doing?",
+            "I'm all ears! What's going on?"
+        ],
+        "playful": [
+            "Hey you! What's the latest? 😊",
+            "Spill the tea! What's happening? ☕",
+            "Okay, I'm intrigued! Tell me more! ✨"
+        ],
+        "formal": [
+            "I'm here if you need to discuss anything.",
+            "Please feel free to share what's on your mind.",
+            "I'm listening. How can I help?"
+        ]
+    }
+}

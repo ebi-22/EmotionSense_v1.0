@@ -1,0 +1,23 @@
+# EmotionSense Backend Requirements
+
+# API Framework
+fastapi>=0.109.0
+uvicorn>=0.27.0
+pydantic>=2.5.0
+
+# ML/AI - Text only, no torchvision needed
+transformers>=4.37.0
+torch>=2.1.0
+sentence-transformers>=3.0.0
+huggingface_hub>=0.23.0
+
+# Vector Database (RAG)
+faiss-cpu>=1.7.4
+numpy>=1.26.0
+
+# Database
+sqlalchemy>=2.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+requests>=2.31.0

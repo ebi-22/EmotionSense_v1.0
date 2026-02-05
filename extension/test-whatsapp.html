@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Extension Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #25D366;
+            text-align: center;
+        }
+        .step {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #25D366;
+            background-color: #f9f9f9;
+        }
+        .step h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        code {
+            background: #e8e8e8;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        .info { background-color: #d1ecf1; color: #0c5460; }
+        button {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #1ea952;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 WhatsApp Extension Debugger</h1>
+        
+        <div class="step">
+            <h3>Step 1: Load Extension</h3>
+            <p>Load the EmotionSense extension in Chrome and open WhatsApp Web</p>
+            <button onclick="checkExtension()">Check Extension Status</button>
+            <div id="extension-status"></div>
+        </div>
+
+        <div class="step">
+            <h3>Step 2: Test Message Detection</h3>
+            <p>This simulates WhatsApp message elements to test the detection logic</p>
+            <button onclick="createTestMessages()">Create Test Messages</button>
+            <button onclick="checkSelectors()">Test Selectors</button>
+            <div id="selector-results"></div>
+        </div>
+
+        <div class="step">
+            <h3>Step 3: Test Input Detection</h3>
+            <p>Test if the extension can find WhatsApp's input box</p>
+            <button onclick="createTestInput()">Create Test Input</button>
+            <button onclick="testInputInsertion()">Test Text Insertion</button>
+            <div id="input-results"></div>
+        </div>
+
+        <div class="step">
+            <h3>Console Logs</h3>
+            <p>Check browser console (F12) for EmotionSense debug messages</p>
+            <button onclick="showConsoleTips()">Show Console Tips</button>
+            <div id="console-tips"></div>
+        </div>
+
+        <!-- Test Elements (hidden but available for selector testing) -->
+        <div style="display: none;" id="test-elements">
+            <!-- Modern WhatsApp message structure -->
+            <div data-pre-plain-text class="test-message">
+                <div role="row">
+                    <span class="selectable-text" dir="ltr">Test message for detection</span>
+                </div>
+            </div>
+            
+            <!-- Legacy message structure -->
+            <div class="message-in test-message" data-id="false_1234567890">
+                <span class="selectable-text">Legacy message format</span>
+            </div>
+
+            <!-- Test input -->
+            <div contenteditable="true" data-testid="conversation-compose-box-input" id="test-input">
+                Type your message here...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test functions
+        function checkExtension() {
+            const status = document.getElementById('extension-status');
+            
+            if (typeof chrome !== 'undefined' && chrome.runtime) {
+                status.innerHTML = '<div class="status success">✅ Chrome extension API available</div>';
+                
+                // Check if our extension is loaded
+                const launcher = document.querySelector('.emotionsense-launcher');
+                if (launcher) {
+                    status.innerHTML += '<div class="status success">✅ EmotionSense launcher found</div>';
+                } else {
+                    status.innerHTML += '<div class="status error">❌ EmotionSense launcher not found</div>';
+                }
+            } else {
+                status.innerHTML = '<div class="status error">❌ Chrome extension API not available</div>';
+            }
+        }
+
+        function createTestMessages() {
+            const testContainer = document.getElementById('test-elements');
+            testContainer.style.display = 'block';
+            
+            const results = document.getElementById('selector-results');
+            results.innerHTML = '<div class="status success">✅ Test messages created</div>';
+        }
+
+        function checkSelectors() {
+            const selectors = [
+                'div[data-pre-plain-text] div[role="row"]',
+                'div.message-in',
+                'div[data-id*="false_"]',
+                'div[aria-label*="Message"]',
+                '.test-message'
+            ];
+            
+            const results = document.getElementById('selector-results');
+            let html = '<h4>Selector Test Results:</h4>';
+            
+            selectors.forEach(selector => {
+                try {
+                    const elements = document.querySelectorAll(selector);
+                    const status = elements.length > 0 ? 'success' : 'error';
+                    const icon = elements.length > 0 ? '✅' : '❌';
+                    html += `<div class="status ${status}">${icon} <code>${selector}</code> - Found ${elements.length} elements</div>`;
+                } catch (error) {
+                    html += `<div class="status error">❌ <code>${selector}</code> - Error: ${error.message}</div>`;
+                }
+            });
+            
+            results.innerHTML = html;
+        }
+
+        function createTestInput() {
+            const testInput = document.getElementById('test-input');
+            testInput.style.display = 'block';
+            testInput.style.border = '2px solid #25D366';
+            testInput.style.padding = '10px';
+            testInput.style.margin = '10px 0';
+            
+            const results = document.getElementById('input-results');
+            results.innerHTML = '<div class="status success">✅ Test input created</div>';
+        }
+
+        function testInputInsertion() {
+            const inputSelectors = [
+                'div[contenteditable="true"][data-testid="conversation-compose-box-input"]',
+                'div[contenteditable="true"][role="textbox"]',
+                '#test-input'
+            ];
+            
+            const results = document.getElementById('input-results');
+            let html = '<h4>Input Detection Results:</h4>';
+            
+            inputSelectors.forEach(selector => {
+                try {
+                    const input = document.querySelector(selector);
+                    if (input) {
+                        html += `<div class="status success">✅ <code>${selector}</code> - Found input</div>`;
+                        
+                        // Test insertion
+                        input.textContent = 'Test insertion successful!';
+                        input.dispatchEvent(new Event('input', { bubbles: true }));
+                    } else {
+                        html += `<div class="status error">❌ <code>${selector}</code> - No input found</div>`;
+                    }
+                } catch (error) {
+                    html += `<div class="status error">❌ <code>${selector}</code> - Error: ${error.message}</div>`;
+                }
+            });
+            
+            results.innerHTML = html;
+        }
+
+        function showConsoleTips() {
+            const tips = document.getElementById('console-tips');
+            tips.innerHTML = `
+                <div class="status info">
+                    <h4>Console Debugging Tips:</h4>
+                    <p>1. Press <code>F12</code> to open Chrome DevTools</p>
+                    <p>2. Go to the <strong>Console</strong> tab</p>
+                    <p>3. Look for messages starting with <code>[EmotionSense]</code></p>
+                    <p>4. Filter console by typing: <code>EmotionSense</code></p>
+                    <p>5. Check for selector warnings and text extraction logs</p>
+                    <p>6. On WhatsApp Web, you should see initialization messages</p>
+                </div>
+            `;
+        }
+
+        // Auto-check extension status on load
+        window.addEventListener('load', checkExtension);
+    </script>
+</body>
+</html>
